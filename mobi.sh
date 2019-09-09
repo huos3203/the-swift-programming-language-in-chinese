@@ -12,7 +12,8 @@ git push origin HEAD:gitbook
 ##
 cd source
 gitbook install
-gitbook mobi ./ ../document/Swift-zh.mobi
+gitbook build ./ ../../docs/swift-zh
+gitbook mobi ./ ../../docs/mobi/Swift-zh.mobi
 
 
 
