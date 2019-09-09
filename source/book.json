@@ -1,0 +1,88 @@
+{
+    "title": "swift中文文档5.0",
+    "author": "iTBoyer",
+    "description": "学习swift基础",
+    "language": "zh-hans",
+    "structure": {
+		"readme": "README.md"
+    },
+    "path": {
+		"content": "source",
+		"toc": "source/SUMMARY.md",
+		"readme": "source/README.md"
+	},
+    "links": {
+        "sidebar": {
+            "iTboyer": "http://huos3203.github.io"
+        }
+    },
+    "plugins": [
+        "-sharing",
+        "splitter",
+        "expandable-chapters-small",
+        "anchors",
+        
+        "github",
+        "github-buttons",
+        "donate",
+        "sharing-plus",
+        "anchor-navigation-ex",
+        "favicon"
+    ],
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/huos3203"
+        },
+        "github-buttons": {
+            "buttons": [{
+                "user": "huos3203",
+                "repo": "iFinance",
+                "type": "star",
+                "size": "small",
+                "count": true
+            }
+            ]
+        },
+        "donate": {
+            "alipay": "./source/images/favicon.png",
+            "title": "",
+            "button": "赞赏",
+            "alipayText": " "
+        },
+        "sharing": {
+            "douban": false,
+            "facebook": false,
+            "google": false,
+            "hatenaBookmark": false,
+            "instapaper": false,
+            "line": false,
+            "linkedin": false,
+            "messenger": false,
+            "pocket": false,
+            "qq": false,
+            "qzone": false,
+            "stumbleupon": false,
+            "twitter": false,
+            "viber": false,
+            "vk": false,
+            "weibo": false,
+            "whatsapp": false,
+            "all": [
+                "google", "facebook", "weibo", "twitter",
+                "qq", "qzone", "linkedin", "pocket"
+            ]
+        },
+        "anchor-navigation-ex": {
+            "showLevel": false
+        },
+        "favicon":{
+            "shortcut": "./source/images/favicon.png",
+            "bookmark": "./source/images/favicon.png",
+            "appleTouch": "./source/images/favicon.png",
+            "appleTouchMore": {
+                "120x120": "./source/images/favicon.png",
+                "180x180": "./source/images/favicon.png"
+            }
+        }
+    }
+}

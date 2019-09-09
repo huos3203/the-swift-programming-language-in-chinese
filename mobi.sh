@@ -5,9 +5,14 @@
 #
 # Distributed under terms of the MIT license.
 #
-
-git pull origin gitbook
+#更新代码
+git pull https://github.com/SwiftGGTeam/the-swift-programming-language-in-chinese.git gitbook
+git commit -m megeee
+git push origin HEAD:gitbook
+##
 cd source
+gitbook install
 gitbook mobi ./ ../document/Swift-zh.mobi
+
 
 
