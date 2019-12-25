@@ -13,7 +13,7 @@
 	},
     "links": {
         "sidebar": {
-            "iTboyer": "http://huos3203.github.io"
+            "iTboyer": "http://it-boyer.github.io"
         }
     },
     "plugins": [
@@ -31,11 +31,11 @@
     ],
     "pluginsConfig": {
         "github": {
-            "url": "https://github.com/huos3203"
+            "url": "https://github.com/it-boyer"
         },
         "github-buttons": {
             "buttons": [{
-                "user": "huos3203",
+                "user": "it-boyer",
                 "repo": "iFinance",
                 "type": "star",
                 "size": "small",
