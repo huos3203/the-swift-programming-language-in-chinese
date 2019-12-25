@@ -202,6 +202,30 @@ if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) {
 // 打印“min is -6 and max is 109”
 ```
 
+
+### 隐式返回的函数 {#functions-with-an-implicit-return}
+如果一个函数的整个函数体是一个单行表达式，这个函数可以隐式地返回这个表达式。举个例子，以下的函数有着同样的作用：
+
+```
+func greeting(for person: String) -> String {
+    "Hello, " + person + "!"
+}
+print(greeting(for: "Dave"))
+// 打印 "Hello, Dave!"
+
+func anotherGreeting(for person: String) -> String {
+    return "Hello, " + person + "!"
+}
+print(anotherGreeting(for: "Dave"))
+// 打印 "Hello, Dave!"
+```
+
+
+`greeting(for:)` 函数的完整定义是打招呼内容的返回，这就意味着它能使用隐式返回这样更简短的形式。`anothergreeting(for:)` 函数返回同样的内容，却因为 `return` 关键字显得函数更长。任何一个可以被写成一行 `return` 语句的函数都可以忽略 `return`。
+
+正如你将会在 [简略的 Getter 声明](./10_Properties.md) 里看到的， 一个属性的 getter 也可以使用隐式返回的形式。
+
+
 ## 函数参数标签和参数名称 {#Function-Argument-Labels-and-Parameter-Names}
 
 每个函数参数都有一个*参数标签（argument label）*以及一个*参数名称（parameter name）*。参数标签在调用函数的时候使用；调用的时候需要将函数的参数标签写在对应的参数前面。参数名称在函数的实现中使用。默认情况下，函数参数使用参数名称来作为它们的参数标签。
@@ -294,7 +318,7 @@ arithmeticMean(3, 8.25, 18.75)
 
 函数参数默认是常量。试图在函数体中更改参数值将会导致编译错误。这意味着你不能错误地更改参数值。如果你想要一个函数可以修改参数的值，并且想要在这些修改在函数调用结束后仍然存在，那么就应该把这个参数定义为*输入输出参数（In-Out Parameters）*。
 
-定义一个输入输出参数时，在参数定义前加 `inout` 关键字。一个 `输入输出参数`有传入函数的值，这个值被函数修改，然后被传出函数，替换原来的值。想获取更多的关于输入输出参数的细节和相关的编译器优化，请查看[输入输出参数](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID545)一节。
+定义一个输入输出参数时，在参数定义前加 `inout` 关键字。一个 `输入输出参数`有传入函数的值，这个值被函数修改，然后被传出函数，替换原来的值。想获取更多的关于输入输出参数的细节和相关的编译器优化，请查看 [输入输出参数](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Declarations.html#//apple_ref/doc/uid/TP40014097-CH34-ID545) 一节。
 
 你只能传递变量给输入输出参数。你不能传入常量或者字面量，因为这些量是不能被修改的。当传入的参数作为输入输出参数时，需要在参数名前加 `&` 符，表示这个值可以被函数修改。
 

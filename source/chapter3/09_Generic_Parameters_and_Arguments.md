@@ -21,7 +21,6 @@
 
 ```swift
 func simpleMax<T: Comparable>(_ x: T, _ y: T) -> T {
-> 
     if x < y {
         return y
     }
@@ -52,7 +51,7 @@ simpleMax(3.14159, 2.71828) // T 被推断为 Double 类型
 
 泛型函数或构造器可以重载，但在泛型形参子句中的类型形参必须有不同的约束或要求，抑或二者皆不同。当调用重载的泛型函数或构造器时，编译器会根据这些约束来决定调用哪个重载函数或构造器。
 
-更多关于泛型 where 从句的信息和关于泛型函数声明的例子，可以看一看 [泛型 where 子句](../chapter2/22_Generics.md#where_clauses)
+更多关于泛型 where 从句的信息和关于泛型函数声明的例子，可以看一看 [泛型 where 子句](../chapter2/22_Generics.md#where_clauses)。
 
 > 泛型形参子句语法
 > 
@@ -117,7 +116,6 @@ struct Dictionary<Key: Hashable, Value>: CollectionType, DictionaryLiteralConver
 
 ```swift
 let arrayOfArrays: Array<Array<Int>> = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-> 
 ```
 
 如 [泛型形参子句](#generic_parameter) 所述，不能用泛型实参子句来指定泛型函数或构造器的类型实参。

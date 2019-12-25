@@ -57,7 +57,7 @@ try 表达式由 `try` 运算符加上紧随其后的可抛出错误的表达式
 
 如果可抛出错误的表达式抛出了错误，将会引发运行时错误。
 
-在二进制运算符左侧的表达式被标记上 `try`、`try?` 或者 `try!` 时，这个运算符对整个二进制表达式都产生作用。也就是说，你可以使用括号来明确运算符的作用范围。
+在二元运算符左侧的表达式被标记上 `try`、`try?` 或者 `try!` 时，这个运算符对整个二元表达式都产生作用。也就是说，你可以使用括号来明确运算符的作用范围。
 
 ```swift
 sum = try someThrowingFunction() + anotherThrowingFunction()   // try 对两个函数调用都产生作用
@@ -65,7 +65,7 @@ sum = try (someThrowingFunction() + anotherThrowingFunction()) // try 对两个�
 sum = (try someThrowingFunction()) + anotherThrowingFunction() // 错误：try 只对第一个函数调用产生作用
 ```
 
-`try` 表达式不能出现在二进制运算符的的右侧，除非二进制运算符是赋值运算符或者 `try` 表达式是被圆括号括起来的。
+`try` 表达式不能出现在二元运算符的的右侧，除非二元运算符是赋值运算符或者 `try` 表达式是被圆括号括起来的。
 
 关于 `try`、`try?` 和 `try!` 的更多信息，以及该如何使用的例子，请参阅 [错误处理](../chapter2/17_Error_Handling.md)。
 > Try 表达式语法
@@ -275,7 +275,7 @@ var emptyDictionary: [String : Double] = [:]
 
 Xcode 使用 playground 字面量对程序编辑器中的颜色、文件或者图片创建可交互的展示。在 Xcode 之外的空白文本中，playground 字面量使用一种特殊的字面量语法来展示。
 
-更多关于在 Xcode 中使用 playground 字面量的信息，请参阅 [添加颜色、文件或图片字面量](https://help.apple.com/xcode/mac/current/#/dev4c60242fc)
+更多关于在 Xcode 中使用 playground 字面量的信息，请参阅 [添加颜色、文件或图片字面量](https://help.apple.com/xcode/mac/current/#/dev4c60242fc)。
 
 > 字面量表达式语法
 > 
@@ -430,7 +430,6 @@ struct Point {
 
 ```swift
 { (parameters) -> return type in
-> 
     statements
 }
 ```
@@ -448,7 +447,6 @@ struct Point {
 ```swift
 myFunction {
     (x: Int, y: Int) -> Int in
-> 
     return x + y
 }
 
@@ -466,7 +464,7 @@ myFunction { $0 + $1 }
 
 使用闭包表达式时，可以不必将其存储在一个变量或常量中，例如作为函数调用的一部分来立即使用一个闭包。在上面的例子中，传入 `myFunction` 的闭包表达式就是这种立即使用类型的闭包。因此，一个闭包是否逃逸与其使用时的上下文相关。一个会被立即调用或者作为函数的非逃逸参数传递的闭包表达式是非逃逸的，否则，这个闭包表达式是逃逸的。
 
-关于逃逸闭包的内容，请参阅[逃逸闭包](./chapter2/07_Closures.md#escaping_closures)
+关于逃逸闭包的内容，请参阅 [逃逸闭包](./chapter2/07_Closures.md#escaping_closures)。
 
 ## 捕获列表 {#capture-lists}
 默认情况下，闭包会捕获附近作用域中的常量和变量，并使用强引用指向它们。你可以通过一个*捕获列表*来显式指定它的捕获行为。
@@ -729,7 +727,6 @@ let myGreeting = greetings[keyPath: \[String].[1]]
 var index = 2
 let path = \[String].[index]
 let fn: ([String]) -> String = { strings in strings[index] }
-> 
 
 print(greetings[keyPath: path])
 // 打印 "bonjour"
@@ -775,7 +772,7 @@ print(interestingNumbers[keyPath: \[String: [Int]].["hexagonal"]!.count.bitWidth
 // 打印 "64"
 ```
 
-关于更多如何使用 key path 与 Objective-C APIs 交互的信息，请参阅 [在 Swift 中使用 Objective-C 运行时特性](https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift)。关于更多 key-value 编程和 key-value 观察的信息，请参阅 [Key-Value 编程](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple_ref/doc/uid/10000107i) 和 [Key-Value 观察编程](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i)
+关于更多如何使用 key path 与 Objective-C APIs 交互的信息，请参阅 [在 Swift 中使用 Objective-C 运行时特性](https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift)。关于更多 key-value 编程和 key-value 观察的信息，请参阅 [Key-Value 编程](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple_ref/doc/uid/10000107i) 和 [Key-Value 观察编程](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i)。
 
 > key-path 表达式语法
 > 
@@ -840,7 +837,6 @@ extension SomeClass {
     func doSomething(_ x: String) { }
 }
 let anotherSelector = #selector(SomeClass.doSomething(_:) as (SomeClass) -> (String) -> Void)
-> 
 ```
 
 由于选择器是在编译时创建的，因此编译器可以检查方法或者属性是否存在，以及是否在运行时暴露给了 Objective-C 。
@@ -903,7 +899,7 @@ print(keyPath == c.getSomeKeyPath())
 
 由于 key-path 字符串表达式在编译期才创建，编译期可以检查属性是否存在，以及属性是否暴露给 Objective-C 运行时。
 
-关于更多如何使用 key path 与 Objective-C APIs 交互的信息，请参阅 [在 Swift 中使用 Objective-C 运行时特性](./https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift)。关于更多 key-value 编程和 key-value 观察的信息，请参阅 [Key-Value 编程](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.md#//apple_ref/doc/uid/10000107i) 和 [Key-Value 观察编程](./https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.md#//apple_ref/doc/uid/10000177i)
+关于更多如何使用 key path 与 Objective-C APIs 交互的信息，请参阅 [在 Swift 中使用 Objective-C 运行时特性](./https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift)。关于更多 key-value 编程和 key-value 观察的信息，请参阅 [Key-Value 编程](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.md#//apple_ref/doc/uid/10000107i) 和 [Key-Value 观察编程](./https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.md#//apple_ref/doc/uid/10000177i)。
 
 > 注意
 > 
@@ -1036,7 +1032,6 @@ class SomeSubClass: SomeSuperClass {
 ```swift
 // 类型注解是必须的，因为 String 类型有多种构造器
 let initializer: Int -> String = String.init
-> 
 let oneTwoThree = [1, 2, 3].map(initializer).reduce("", combine: +)
 print(oneTwoThree)
 // 打印“123”
@@ -1087,9 +1082,9 @@ t.0 = t.1
 
 对于模块的成员来说，只能直接访问顶级声明中的成员。
 
-使用 `dynamicMemberLookup` 属性声明的类型包含可以在运行时查找的成员，具体请参阅 [属性](./07_Attributes.md)
+使用 `dynamicMemberLookup` 属性声明的类型包含可以在运行时查找的成员，具体请参阅 [属性](./07_Attributes.md)。
 
-为了区分只有参数名有所不同的方法或构造器，在圆括号中写出参数名，参数名后紧跟一个冒号，对于没有参数名的参数，使用下划线代替参数名。而对于重载方法，则需使用类型标注进行区分。例如：
+为了区分只有参数名有所不同的方法或构造器，在圆括号中写出参数名，参数名后紧跟一个冒号，对于没有参数名的参数，使用下划线代替参数名。而对于重载方法，则需使用类型注解进行区分。例如：
 
 ```swift
 class SomeClass {
@@ -1106,7 +1101,6 @@ let b = instance.someMethod(_:y:)        // 无歧义
 let d = instance.overloadedMethod        // 有歧义
 let d = instance.overloadedMethod(_:y:)  // 有歧义
 let d: (Int, Bool) -> Void  = instance.overloadedMethod(_:y:)  // 无歧义
-> 
 ```
 
 如果点号（`.`）出现在行首，它会被视为显式成员表达式的一部分，而不是隐式成员表达式的一部分。例如如下代码所展示的被分为多行的链式方法调用：
@@ -1115,7 +1109,6 @@ let d: (Int, Bool) -> Void  = instance.overloadedMethod(_:y:)  // 无歧义
 let x = [10, 3, 20, 15, 4]
     .sort()
     .filter { $0 > 5 }
-> 
     .map { $0 * 100 }
 ```
 
@@ -1232,7 +1225,6 @@ if let unwrappedC = c {
 
 ```swift
 func someFunctionWithSideEffects() -> Int {
-> 
     // 译者注：为了能看出此函数是否被执行，加上了一句打印
     print("someFunctionWithSideEffects")
     return 42
